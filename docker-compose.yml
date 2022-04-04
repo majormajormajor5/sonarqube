@@ -8,7 +8,7 @@ services:
     ports:
       - '9000:9000'
     networks:
-      - backend
+      - app
     environment:
       SONAR_JDBC_URL: jdbc:postgresql://app-sonar-db:5432/sonar
       SONAR_JDBC_USERNAME: sonar
@@ -28,7 +28,7 @@ services:
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
     networks:
-      - backend
+      - app
 
 volumes:
   sonarqube_data:
@@ -38,4 +38,5 @@ volumes:
   postgresql_data:
 
 networks:
-  backend:
+  app:
+    name: app
